@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100">
+  
+	<!-- <div class="bg-white   py-4 px-16  flex lg:flex-row justify-between md:flex-col  ">
+		<div>
+			<a class="font-sans text-3xl text-blue-900" href="#">Rafiqul Islam</a>
+			
+		</div>
+
+		<div class=" float-right md:pt-8">
+			<ul  class="flex flex-row flex-auto justify-between space-x-4 ">
+				<li class=" hover:text-blue-400 font-sans text-lg" ><a href="">Home</a></li>
+				<li class="  hover:text-blue-400 font-sans text-lg" ><a href="">Html & Css</a></li>
+				<li class="  hover:text-blue-400 font-sans text-lg" ><a href="">Javascript</a></li>
+				<li class=" hover:text-blue-400 font-sans text-lg" ><a href="">Complete Website</a></li>
+				<li class=" hover:text-blue-400 font-sans text-lg" ><a href="">Contact Us</a></li>
+				<li class=" hover:text-blue-400 font-sans text-lg" ><a href="">About Us</a></li>
+			</ul>
+			
+		</div>
+	</div> -->
+
+<header x-data="{ mobileMenuOpen : false }" class="flex flex-wrap flex-row justify-between md:items-center md:space-x-4 bg-white py-6 px-6 relative">
+  <a href="#" class="block">
+    <span class="sr-only">Tesla Coder</span>
+    <img class="h-6 md:h-8" src="images/logo2.jpg" alt="Themes.dev Logo" title="Tesla Coder Logo">
+  </a>
+  <button @click="mobileMenuOpen = !mobileMenuOpen" class="inline-block md:hidden w-8 h-8 bg-gray-200 text-gray-600 p-1">
+    <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+  </button>
+  <nav class="absolute md:relative top-16 left-0 md:top-0 z-20 md:flex flex-col md:flex-row md:space-x-6 font-semibold w-full md:w-auto bg-white shadow-md rounded-lg md:rounded-none md:shadow-none md:bg-transparent p-6 pt-0 md:p-0"
+  :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false"
+  >
+    <a href="#" class="block py-1 text-indigo-600 hover:text-blue-400">Home</a>
+<!--     <a href="#" class="block py-1 text-gray-600 hover:text-blue-400">Html & Css <i class="fa fa-angle-down"></i></a> -->
+    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+        <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-blue-400 focus:text-gray-900   focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <span>Html & Css</span>
+          <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+          <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent dark-mode:bg-transparent dark-mode:hover:bg-gray-200 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Html</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Css</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">BootStrap</a>
+          </div>
+        </div>
+      </div>    
+    <a href="#" class="block py-1 text-gray-600 hover:text-blue-400">Javascript</a>
+    <a href="#" class="block py-1 text-gray-600 hover:text-blue-400">Complete Website</a>
+    <a href="#" class="block py-1 text-gray-600 hover:text-blue-400">Blog</a>
+    <a href="#" class="block py-1 text-gray-600 hover:text-blue-400">About Us</a>
+    <a href="#" class="block py-1 text-gray-600 hover:text-blue-400">Contact Us</a>
+  </nav>
+</header>
+
+<article class="text-lg px-6 py-6 text-gray-600 mx-auto max-w-2xl">
+  <h2 class="text-xl font-semibold">Page title</h2>
+  <p class="mt-6">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet lorem in libero faucibus euismod nec in metus. Quisque at facilisis magna. Donec rhoncus bibendum tincidunt. Vestibulum non orci eget dolor eleifend mollis eu sit amet nunc. Cras malesuada sem nec malesuada cursus.
+  </p>  
+
+  <p class="mt-6">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet lorem in libero faucibus euismod nec in metus. Quisque at facilisis magna. Donec rhoncus bibendum tincidunt. Vestibulum non orci eget dolor eleifend mollis eu sit amet nunc. Cras malesuada sem nec malesuada cursus.
+  </p>  
+</article>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</div>
+</body>
+</html>
